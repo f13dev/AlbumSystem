@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
  */
 package AlbumCore;
 
@@ -10,5 +8,26 @@ package AlbumCore;
  * @author jamesvalentine
  */
 public class Artist {
+    
+    /* Stores the artists name. */
+    private String name;
+    
+    /**
+     * Initialises a new Artist object using the argument aName.
+     * @param aName 
+     */
+    Artist(String aName)
+    {
+        this.name = aName;
+    }
+    
+    /**
+     * Returns the name of the receiver.
+     * @return 
+     */
+    public String getName()
+    {
+        return this.name;
+    }
     
 }
