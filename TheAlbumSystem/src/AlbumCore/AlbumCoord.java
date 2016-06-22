@@ -45,4 +45,25 @@ public class AlbumCoord {
         return this.albums;
     }
     
+    /**
+     * Sets the receivers artists attribute to the value of aSet.
+     * @param aSet 
+     */
+    public void setArtists(Set<Artist> aSet)
+    {
+        this.artists = aSet;
+    }
+    
+    /**
+     * Adds a new Artist object to the artists set with the name
+     * attribute aName.
+     * @param aName 
+     */
+    public void newArtist(String aName)
+    {
+        Set<Artist> temp = this.getArtists();
+        temp.add(new Artist(aName));
+        this.setArtists(temp);
+    }
+    
 }
