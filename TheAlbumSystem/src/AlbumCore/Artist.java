@@ -44,4 +44,19 @@ public class Artist {
         return this.albums;
     }
     
+    /**
+     * Sets the receivers albums attribute to the value of aSet.
+     * @param aSet 
+     */
+    public void setAlbums(Set<Album> aSet)
+    {
+        this.albums = aSet;
+    }
+    
+    public void addAlbum(Album anAlbum)
+    {
+        Set<Album> temp = this.getAlbums();
+        temp.add(anAlbum);
+        this.setAlbums(temp);
+    }
 }
