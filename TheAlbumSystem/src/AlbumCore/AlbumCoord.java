@@ -200,4 +200,23 @@ public class AlbumCoord {
         return temp;
     }
     
+    /**
+     * A test method to print out each artist and
+     * the albums associated with the artist.
+     */
+    public void printArtistsAndAlbums()
+    {
+        // Loop through artists
+        for (Artist eachArtist : this.getArtists())
+        {
+            // Print artist name
+            System.out.println("Artist: " + eachArtist.getName());
+            // Loop through albums for eachArtist
+            for (Album eachAlbum : eachArtist.getAlbums())
+            {
+                System.out.println(eachArtist.getName() + " - " + eachAlbum.getTitle());
+            }
+            
+        }
+    }
 }
