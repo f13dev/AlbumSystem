@@ -35,7 +35,14 @@ public class AlbumGUI {
         
         coord.addAlbum("Greatest hits", "Queen", true);
         
+        System.out.println("All artists and albums");
         coord.printArtistsAndAlbums();
+        
+        System.out.println("Albums that are owned");
+        //coord.printArtistsAndAlbumsOwned(true);
+        
+        System.out.println("Albums that are not owned");
+        //coord.printArtistsAndAlbumsOwned(false);
     }
     
 }

@@ -243,6 +243,8 @@ public class AlbumCoord {
                     System.err.println(eachArtist.getName() + " - " + eachAlbum.getTitle());
                 }
             }
+            // Print a blank line as a spacer
+            System.out.println();
         }
     }
 }
