@@ -34,6 +34,8 @@ public class AlbumGUI {
         coord.addAlbum("Use your illusion II", "Guns n Roses", false);
         
         coord.addAlbum("Greatest hits", "Queen", true);
+        
+        coord.printArtistsAndAlbums();
     }
     
 }
