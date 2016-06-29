@@ -1,5 +1,7 @@
 /*
- * 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package AlbumCore;
 
@@ -9,54 +11,54 @@ import java.util.*;
  *
  * @author jamesvalentine
  */
-public class Artist {
+public class Artist implements Comparable<Artist> {
+    private final String name;
+    private Set<Album> albums;
     
-    /* Stores the artists name. */
-    private String name;
-    /* Stores the list of the linked Album objects */
-    Set<Album> albums;
-    
-    /**
-     * Initialises a new Artist object using the argument aName.
-     * @param aName 
-     */
     Artist(String aName)
     {
         this.name = aName;
-        this.albums = new HashSet<>();
+        this.albums = new TreeSet<Album>() {
+        };
     }
-    
+
     /**
-     * Returns the name of the receiver.
-     * @return name
+     * @return the name
      */
-    public String getName()
-    {
-        return this.name;
+    public String getName() {
+        return name;
     }
-    
+
     /**
-     * Returns the set of Artist objects linked to the receiver.
-     * @return Set<Album>
+     * @return the albums
      */
-    public Set<Album> getAlbums()
-    {
-        return this.albums;
-    }
-    
-    /**
-     * Sets the receivers albums attribute to the value of aSet.
-     * @param aSet 
-     */
-    public void setAlbums(Set<Album> aSet)
-    {
-        this.albums = aSet;
+    public Set<Album> getAlbums() {
+        return albums;
     }
     
     public void addAlbum(Album anAlbum)
     {
-        Set<Album> temp = this.getAlbums();
-        temp.add(anAlbum);
-        this.setAlbums(temp);
+        Set<Album> tempset = this.getAlbums();
+        tempset.add(anAlbum);
+        this.setAlbums(tempset);
+    }
+
+    public void removeAlbum(Album anAlbum)
+    {
+        Set<Album> tempset = this.getAlbums();
+        tempset.remove(anAlbum);
+        this.setAlbums(tempset);
+    }
+            
+    /**
+     * @param albums the albums to set
+     */
+    private void setAlbums(Set<Album> albums) {
+        this.albums = albums;
+    }
+
+    @Override
+    public int compareTo(Artist o) {
+        return this.getName().compareTo(o.getName());
     }
 }

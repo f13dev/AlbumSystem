@@ -1,5 +1,7 @@
 /*
- * 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package AlbumCore;
 
@@ -7,40 +9,60 @@ package AlbumCore;
  *
  * @author jamesvalentine
  */
-public class Album {
+public class Album implements Comparable<Album> {
+    private final String title;
+    private boolean owned;
+    private final Artist artist;
     
-    /* Stores the linked Artist object */
-    private Artist artist;
-    /* Stores the album titile */
-    private String title;
-    
-    /**
-     * Initialises a new Album object using the arguments anArtist and aTitle.
-     * @param anArtist
-     * @param aTitle 
-     */
-    Album(Artist anArtist, String aTitle)
+    Album(String aTitle, Artist anArtist, boolean isOwned)
     {
-        this.artist = anArtist;
         this.title = aTitle;
+        this.artist = anArtist;
+        this.owned = isOwned;
+        anArtist.addAlbum(this);
     }
-    
+
     /**
-     * Returns the artist attribute of the receiver.
-     * @return artist
+     * @return the title
      */
-    public Artist getArtist()
-    {
-        return this.artist;
+    public String getTitle() {
+        return title;
     }
-    
+
     /**
-     * Returns the name attribute of the receiver.
-     * @return title
+     * @return the owned
      */
-    public String getTitle()
-    {
-        return this.title;
+    public boolean isOwned() {
+        return owned;
+    }
+
+    /**
+     * @param owned the owned to set
+     */
+    public void setOwned(boolean owned) {
+        this.owned = owned;
+    }
+
+    /**
+     * @return the artist
+     */
+    public Artist getArtist() {
+        return artist;
     }
     
+    @Override
+    public int compareTo(Album o) {
+        return this.getTitle().compareTo(o.getTitle());
+    }
+    
+    @Override
+    public String toString()
+    {
+        return this.getArtist().getName()
+                + " "
+                + this.getTitle()
+                + " | owned = "
+                + this.isOwned();
+    }
+
 }
