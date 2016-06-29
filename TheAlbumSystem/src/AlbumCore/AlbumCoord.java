@@ -216,7 +216,33 @@ public class AlbumCoord {
             {
                 System.out.println(eachArtist.getName() + " - " + eachAlbum.getTitle());
             }
-            
+            // Print a blank line to act as a spacer
+            System.out.println();
+        }
+    }
+    
+    /**
+     * A test method to print out each artist and the albums
+     * associated with the artist. According to the argument
+     * owned, if true, only owned albums are printed, if false
+     * only albums that are not owned are printed
+     * @param owned 
+     */
+    public void printArtistsAndAlbumsOwned(boolean owned)
+    {
+        // Loop through artists
+        for (Artist eachArtist :  this.getArtists())
+        {
+            System.out.println("Artist: " + eachArtist.getName());
+            // Loop through albums
+            for (Album eachAlbum : eachArtist.getAlbums())
+            {
+                // Check if eachAlbum.owned is equal to owned
+                if (eachAlbum.isOwned() == owned)
+                {
+                    System.err.println(eachArtist.getName() + " - " + eachAlbum.getTitle());
+                }
+            }
         }
     }
 }
